@@ -13,6 +13,6 @@ class TodoPolicy
     {
         return $user->id === $post->user_id
             ? Response::allow()
-            : Response::deny("Bu eslatmani o'chirolmaysiz");
+            : Response::deny("You don't delete this note");
     }
 }
