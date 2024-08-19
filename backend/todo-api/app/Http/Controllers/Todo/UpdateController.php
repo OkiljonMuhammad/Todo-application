@@ -11,8 +11,8 @@ class UpdateController extends Controller
     public function __invoke(Request $request, Todo $todo)
     {
         $validated = $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'description' => 'nullable|string',
+            'item' => 'required|string|max:255',
+            'completed'=>'required|boolean',
         ]);
 
         $todo->update($validated);

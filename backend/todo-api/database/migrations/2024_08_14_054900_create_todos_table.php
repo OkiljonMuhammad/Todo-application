@@ -10,10 +10,8 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('title');
-            $table->text('content');
-            $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
+            $table->string('item');
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }

@@ -11,12 +11,12 @@ class StoreController extends Controller
     public function __invoke(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'item' => 'required|string|max:255',
+            'completed'=>'required|boolean',
         ]);
 
         $todo = Todo::create($validated);
-        return response()->json(['todo' => $todo], 201);
+        return response()->json(['todo' => $todo]);
     }
 }
 
