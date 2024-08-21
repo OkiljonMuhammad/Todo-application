@@ -20,8 +20,8 @@ Route::post('/logout', LogoutController::class)->middleware('auth:sanctum')->nam
 Route::get('/user', UserController::class)->middleware('auth:sanctum')->name('auth.user');
 
 // Routes for Todo management
-Route::get('/todos', IndexController::class)->name('todos.index');
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/todos', IndexController::class)->name('todos.index');
     Route::post('/todos', StoreController::class)->name('todos.store');
     Route::get('/todos/{todo}', ShowController::class)->name('todos.show');
     Route::put('/todos/{todo}', UpdateController::class)->name('todos.update');
